@@ -113,7 +113,7 @@ public class Mortgage {
             x++;
         }
 
-        System.out.println(Month.size() + "  " + LoanAfterMonths.size());
+        //System.out.println(Month.size() + "  " + LoanAfterMonths.size());
 
         ArrayList<ArrayList<Float>> arr = new ArrayList<>();
         arr.add(Month);
@@ -291,7 +291,7 @@ public class Mortgage {
             loanAmount = myarr[0];
             couponValue = myarr[1];
             termmonths = myarr[2];*/
-        float loanAmount = 1000000;
+        /*float loanAmount = 1000000;
         double couponValue = 0.05;
         float termmonths = 120;
         Mortgage mortgage = new Mortgage(loanAmount, (float)couponValue, termmonths);
@@ -302,12 +302,12 @@ public class Mortgage {
         ArrayList<Float> Principle = mortgageValues.get(3);
         ArrayList<Float> Interest = mortgageValues.get(4);
         System.out.println("Months  " + months + "\n");
-        System.out.println(" Updated balance    " +updatedLoan+ "\n");
+        System.out.println(" Updated balance    " +updatedLoan+ "\n ");
         System.out.println(" Total Cash " + TotalCash+ "\n");
         System.out.println(" Principle over time    " + Principle+ "\n");
         System.out.println(" Interest " + Interest+ "\n");
-        System.out.println(mortgage.getPV(.03, mortgage)); //for mortgage analysis only
-
+        System.out.println(" PRESENT VALUE:  " + mortgage.getPV(.03, mortgage)); //for mortgage analysis only
+*/
 
 /*
         else{
@@ -328,25 +328,32 @@ public class Mortgage {
                 schoolRank = myarr2[0];
                 schoolLocation = myarr2[1];
                 major = myarr2[2];
-            //}
-            
-            String[] underwrite = {schoolRank, schoolLocation, major}; // for student loans analysis only
-            Mortgage mortgage = new Mortgage(loanAmount, couponValue, termmonths);
+            //}*/
 
-            ArrayList<ArrayList<Float>> mortgageValues = showValues(mortgage, underwrite);
-            ArrayList<Float> months = mortgageValues.get(0);
-            ArrayList<Float> updatedLoan = mortgageValues.get(1);
-            ArrayList<Float> TotalCash = mortgageValues.get(2);
-            ArrayList<Float> Principle = mortgageValues.get(3);
-            ArrayList<Float> Interest = mortgageValues.get(4);
+        String schoolRank = "top50";
+        String schoolLocation = "ne";
+        String major = "stem";
+        float loanAmount = 1000000;
+        double couponValue = 0.05;
+        float termmonths = 120;
+        String[] underwrite = {schoolRank, schoolLocation, major}; // for student loans analysis only
+        Mortgage mortgage = new Mortgage(loanAmount, (float)couponValue, termmonths);
 
-            System.out.println(months);
-            System.out.println(updatedLoan);
-            System.out.println(TotalCash);
-            System.out.println(Principle);
-            System.out.println(Interest);
+        ArrayList<ArrayList<Float>> mortgageValues = showValues(mortgage, underwrite);
+        ArrayList<Float> months = mortgageValues.get(0);
+        ArrayList<Float> updatedLoan = mortgageValues.get(1);
+        ArrayList<Float> TotalCash = mortgageValues.get(2);
+        ArrayList<Float> Principle = mortgageValues.get(3);
+        ArrayList<Float> Interest = mortgageValues.get(4);
+
+        System.out.println("Months  " + months + "\n");
+        System.out.println(" Updated balance    " +updatedLoan+ "\n ");
+        System.out.println(" Total Cash " + TotalCash+ "\n");
+        System.out.println(" Principle over time    " + Principle+ "\n");
+        System.out.println(" Interest " + Interest+ "\n");
+
         }
-        */
+
         //myobj.close();
 
     }
@@ -377,4 +384,4 @@ public class Mortgage {
         else courseRate = .03; // for other majors ie business
         // taking the current treasury rate to be 1.73%
      */
-}
+
