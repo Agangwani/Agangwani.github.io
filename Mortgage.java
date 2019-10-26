@@ -9,6 +9,7 @@ import java.time.LocalDate;
 import java.time.Month;
 import java.time.Year;
 import java.util.*;
+
 public class Mortgage {
     private static float loanAmount;
     private static float couponValue;
@@ -23,12 +24,12 @@ public class Mortgage {
         this.loanAmount = loanAmount;
         this.couponValue = couponValue;
         this.termmonths = termmonths;
-
     }
 
     public static void updateRate(float rate){
         Mortgage.couponValue = rate;
     }
+    
     /*
 
     This function takes some input and calculates the monthly mortgage payment with interest
@@ -40,6 +41,7 @@ public class Mortgage {
     divide the monthly rate by the result and then multiply all of that by amount borrowed to get monthly payment
     inputs: loanAmount, couponvalue(annual interest rate), Term(in months)
      */
+
     public static double getMonthlyMortgagePayment(){
         // Vars: Loan Amount, CouponValue, Termmonths
         double denominator;
@@ -51,7 +53,7 @@ public class Mortgage {
                 return Math.max(0.0,loanAmount/denominator);
             else
                 return 0.0;
-        } else
+        } else 
             return 0.0;
         }
 
@@ -69,11 +71,12 @@ public class Mortgage {
             } else
                 return 0.0;
         }
+        
         /*
         float monthlyInterest = (couponValue/12);
         float temp = (float)(1-(Math.pow(monthlyInterest+1,(-1* termmonths))));
         float temp2 = loanAmount * monthlyInterest / temp;
-       // temp = (monthlyInterest-1)/temp;
+        // temp = (monthlyInterest-1)/temp;
         //float monthlyPayment = loanAmount*temp;
         return temp2;
         */
@@ -123,8 +126,8 @@ public class Mortgage {
         arr.add(interestPayments);
 
         return arr;
-
     }
+    
     // this is the overloaded method to calculate the student loan values.
     public static ArrayList<ArrayList<Float>> showValues(Mortgage mortgage, String[] underwriteRate){
         float loanAmount = mortgage.loanAmount;
@@ -176,10 +179,9 @@ public class Mortgage {
         arr.add(principlePayments);
         arr.add(interestPayments);
 
-
         return arr;
-
     }
+
     public double getPV(double discountRate, Mortgage mortgage) {
         double pv=0;
         ArrayList<ArrayList<Float>> mortgageValues = showValues(mortgage);
@@ -230,14 +232,15 @@ public class Mortgage {
         return finalRate;
 
     }
+    
     public static double calculateVariableRate(double startRate){
-
         // 10.5 taken as absolute ceiling of interest rates as per Sallie Mae
         // this is how much the interest rate is going to increase per year up to the cap of 10.5
         // assumes linear growth in interest rate
         double variableRate = (.105 - startRate)/12;
         return variableRate;
     }
+    
     public static double variateRate(double currentRate, double variableRate){
         // function do increment
         double newRate = currentRate+variableRate;
@@ -256,8 +259,8 @@ public class Mortgage {
         Float[] myarr = {loanAmount, termmonths, couponvalue};
         myobj.close();
         return myarr;
-
     }
+
     public static String[] inputRanking(){
         Scanner myobj = new Scanner(System.in);
         System.out.println("What is your schools approximate ranking " + "\n");
@@ -271,8 +274,8 @@ public class Mortgage {
 
         String[] results = {schoolRank, schoolLocation, majorStudies};
         return results;
-
     }
+
     public static void main(String[] args) {
         //Schedule a job for the event-dispatching thread:
         //creating and showing this application's GUI.
@@ -351,12 +354,9 @@ public class Mortgage {
         System.out.println(" Total Cash " + TotalCash+ "\n");
         System.out.println(" Principle over time    " + Principle+ "\n");
         System.out.println(" Interest " + Interest+ "\n");
-
-        }
-
-        //myobj.close();
-
     }
+        //myobj.close();
+}
 
     /*
     if(schoolRank.equals("top50")){
@@ -384,4 +384,3 @@ public class Mortgage {
         else courseRate = .03; // for other majors ie business
         // taking the current treasury rate to be 1.73%
      */
-
